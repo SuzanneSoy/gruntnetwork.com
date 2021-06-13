@@ -1,0 +1,2 @@
+<h1>{{{lang:Edition de la page}}} ${he:nom page}</h1>
+${formulaire_edition}

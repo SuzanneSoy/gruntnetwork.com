@@ -1,0 +1,7 @@
+<h1>Tâche : ${titre}</h1>
+<dl>
+	<dt>Dependances :</dt>
+	<dd>${dependances}</dd>
+</dl>
+<h2 id="tache-description">Description</h2>
+${contenu}

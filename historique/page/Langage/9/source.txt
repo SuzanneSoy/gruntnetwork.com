@@ -1,0 +1,40 @@
+page
+
+= Langage =
+
+Le langage de programmation de gruntnetwork est un langage graphique, à composants, sans primitives fixées, suivant le pradigme du dataflow, et dont les programmes sont destinés à être prouvés.
+
+== Graphique ==
+
+«Langage de programmation graphique» signifie que la programmation s'effectue en mannipulant des éléments graphiques et non en tappant du texte ; Ainsi, des langages tels que Visual Basic (r) ne sont pas «graphiques» en ce sens.
+
+La programmation graphique permet d'éviter certain écueil de la langage de la programmation textuelle :
+ * '''Conflis de nommage''', résolus par l'utilisation de références internes au système et d'un moteur de recherche permettant de sélectionner la valeur souhaitée parmis des homonymes, au lieu d'identifiants associés à une valeur par une liaison statique ou dynamique dépendante desidentifiants précédements définits ;
+ * '''Encombrement visuel''', lorsque le code important est noyé dans par des détails syntaxiques, résolu par la possibilité de masquer les opérations inutiles à la compréhension du programme ou certains commentaires, en ne les affichant qu'à la demande. Les éditeurs de programmation textuels proposent souvent de masquer une struture de contrôle entière (boucle, fonction, ...), ce mécanisme n'est toute fois pas pratique et il ne permet pas de masquer de petits éléments ;
+ * La '''méta-programmation''' est rendue plus facile par la possibilité de distinguer facilement les niveaux d'abstraction par des couleurs différentes, ... De plus, on peut représenter les nouvelles syntaxes par des modèles dont certains éléments proviennent de l'extérieur, alors que dans les langages textuels l'échappement de telles structures est très ardus.
+
+== Composants ==
+
+La programmation par composant est une analogie des circuits electroniques. Les programmes sont construis en connectant entre eux divers coposants, représentant des fonctionnalités déjà présentes, eux-mêmes construits par des connexions entre des composants plus élémentaires.
+
+Les éléments syntaxiques principaux du langage sont :
+ * '''Les blocs''', qui sont les composants ;
+ * '''Les ports''', qui sont les points permettant la connexion d'un bloc aux autres ;
+ * '''Les connexions'''.
+
+L'avantage de ces représentations est que les blocs, ports et connexions contiennent beaucoup plus d'informations que ce qui est directement visible :
+ * Les blocs peuvent représenter un objet, une structure de donnée statique (dont la représentation en mémoire est peut-être complexe), une fonction, un document, une règle (par ex. logique ou de filtrage), …
+ * Les ports peuvent contenir les informations de typage, et des contraintes ;
+ * Les connexions contiennent les transtypages, et par exemple dans le cas de la connexion d'un flux de type «liste» à un un bloc acceptant des valeurs uniques, la transformation automatique en une appliquation du bloc à chaque élément de la liste est inscrite dans la connexion.
+
+L'utilisation de blocs pour représenter les fonctions permet aussi une représentation agréable des fonctions récursives : Soit l'appel récursif est représenté par des connexions internes avec bloc identique à celui en cours de définition (le bloc «factorielle» est composé du bloc «multiplication» et du bloc «factorielle» lui-même), dans le cas de récursivité non terminale. Dans le cas de la récursivité terminale, la sortie du bloc est simplement re-connectée à son entrée.
+
+== Sans primitives fixées ==
+
+Ce langage ne possède pas de primitives (telles que les opérations arithmétiques ou d'entrée-sortie) qui ne seraient pas implémentées avec le langage lui-même.
+
+Afin de fournir des éléments de base pour le langage, la machine destinée à exécuter les programmes sera modélisée sous la forme d'opérations qu'elle est capable de faire et leur impact sur l'état de la machine. En terme de programmation orientée objet, on peut considérer la machine comme un gigantesque objet, dont on ne connaît pas l'implémentation, mais dont on connaît les effets de bord.
+
+== Dataflow ==
+
+== Preuves ==

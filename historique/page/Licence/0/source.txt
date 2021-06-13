@@ -1,0 +1,18 @@
+page
+
+= Licence =
+
+Ci-dessous, «ce travail» désigne à la fois, sauf mention explicite du contraire :
+ * le contenu du site web http://gruntnetwork.com/ ;
+ * sa mise en page ;
+ * sa mise en forme ;
+ * le code source du logiciel «fastiki» permettant le fonctionnement de ce site web ;
+ * le code source du projet gruntnetwork, ainsi que toutes les données relatives à ce projet (images, polices de caractère, version compilée, …) .
+
+== Termes de la licence ==
+
+Vous êtes autorisé à redistribuer ce travail sous n'importe quelle licence (y compris le libérer dans le domaine public, lorsque c'est possible), sous n'importe quelle forme, et vous n'êtes pas obligé de mentionner l'auteur original pour le faire.
+
+Ce travail est fourni SANS AUCUNE GARANTIE, dans les limites imposées par la loi. En particulier, l'auteur ne saurait être tenu responsable de tout dommage ou préjudice découlant de l'utilisation de ce travail ou des informations qu'il contient, y compris, mais sans se limiter à ces cas particuliers :
+ * Dommages financiers ou matériels ;
+ * Informations erronnées.

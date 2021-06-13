@@ -1,0 +1,19 @@
+page
+
+= Interface Homme-Machine =
+
+== Interface orientée document ==
+
+L'Interface Homme-Machine (IHM) de gruntnetwork est orientée document. Cela signifie que l'élément principal présenté à l'utilisateur est le document, autour duquel viennent se greffer des outils.
+
+Dans la plupart des sytèmes actuels, on présente à l'utilisateur la possibilité de lancer divers processus directement (via un menu d'applications), ou bien de lancer ces mêmes processus avec une certaine donnée en entrée (l'ouverture d'un fichier via son icône passe obligatoirement par le démarrage d'un processus, qui décide que faire de ce fichier). Cette approche présente plusieurs défauts :
+
+ * Lorsque le processus plante, tous ses documents sont perdus ;
+ * Intuitivement, l'utilisateur a l'impression d'avoir ouvert un document, alors qu'en réalité il vient de démarrer une application. L'utilisateur a donc une vision erronnée du système, ce qui est en général mauvais, car moins il comprend le système, moins il est efficace ;
+ * Des mécanismes complexes de dialogue entre applications sont nécessaires pour l'édition de documents composite (OLE, Kpart, …) ;
+ * Si l'application ne sait pas gérer un certain protocole (http, ouverture de fichiers à l'intérieur de fichiers compressés, …), elle ne pourra pas ouvrir les documents accessibles via ce protocole. L'environnement de bureau KDE apporte une solution en permettant le partage de ces protocoles via les KIOSlaves.
+
+Une approche orientée document apporte des solutions à ces problèmes :
+ * Lorsqu'un des outils greffés autour du document plante, il suffi
+
+== Génération semi-automatique ==

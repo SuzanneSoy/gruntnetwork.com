@@ -1,0 +1,15 @@
+page
+
+= Langage =
+
+Le langage de programmation de gruntnetwork est un langage graphique, à composants,suivant le pradigme du dataflow. 
+
+== Graphique ==
+
+«Langage de programmation graphique» signifie que la programmation s'effectue en mannipulant des éléments graphiques et non en tappant du texte; ainsi, des langages tels que Visual Basic (r) ne sont pas «graphiques» en ce sens.
+
+La programmation graphique permet d'éviter certain écueil de la langage de la programmation textuelle :
+ * '''Conflis de nommage''', résolus par l'utilisation de références internes au système et d'un moteur de recherche permettant de sélectionner la valeur souhaitée parmis des homonymes, au lieu d'identifiants associés à une valeur par une liaison statique ou dynamique dépendante desidentifiants précédements définits.
+
+== Composants ==
+

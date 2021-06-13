@@ -1,0 +1,70 @@
+page
+
+= Langage =
+
+Le langage de programmation de gruntnetwork est un langage graphique, à composants, sans primitives fixées, suivant le paradigme du dataflow, et dont les programmes sont destinés à être prouvés.
+
+== Graphique ==
+
+«Langage de programmation graphique» signifie que la programmation s'effectue en mannipulant des éléments graphiques et non en tappant du texte ; Ainsi, des langages tels que Visual Basic (r) ne sont pas «graphiques» en ce sens.
+
+La programmation graphique permet d'éviter certains écueils de la programmation textuelle :
+ * '''Conflits de nommage''', résolus par l'utilisation de références internes au système et d'un moteur de recherche permettant de sélectionner la valeur souhaitée parmis des homonymes, au lieu d'identifiants associés à une valeur par une liaison statique ou dynamique dépendante des identifiants précédemments définis ;
+ * '''Encombrement visuel''', lorsque le code important est noyé par des détails syntaxiques, résolu par la possibilité de masquer les opérations inutiles à la compréhension du programme ou bien certains commentaires, en ne les affichant qu'à la demande. Les éditeurs de programmation textuels proposent souvent de masquer une struture de contrôle entière (boucle, fonction, …), ce mécanisme n'est toutefois pas pratique et il ne permet pas de masquer de petits éléments ;
+ * La '''méta-programmation''' est rendue plus facile par la possibilité de distinguer facilement les niveaux d'abstraction par des couleurs différentes, une imbrication visuelle, ... De plus, on peut représenter les nouvelles syntaxes étendant le langage par des modèles de fonctions dont certains éléments proviennent de l'extérieur, alors que dans les langages textuels l'échappement de telles structures est très ardu.
+
+== Composants ==
+
+La programmation par composant est une analogie des circuits electroniques. Les programmes sont construits en connectant entre eux divers coposants, représentant des fonctionnalités déjà présentes, eux-mêmes construits par des connexions entre des composants plus élémentaires.
+
+Les éléments syntaxiques principaux du langage sont :
+ * '''Les blocs''', qui sont les composants ;
+ * '''Les ports''', qui sont les points permettant la connexion d'un bloc aux autres ;
+ * '''Les connexions'''.
+
+L'avantage de ces représentations est que les blocs, ports et connexions contiennent beaucoup plus d'informations que ce qui est directement visible :
+ * Les blocs peuvent sont la structure de base du langage, et peuvent autant représenter un objet ou une structure de donnée statique (dont la représentation en mémoire est peut-être complexe), qu'une fonction ou une macro. Ceci fait de gruntnetwork un langage [[http://en.wikipedia.org/wiki/Homoiconicity|homoiconique]]. Cette représentation est extensible, car chaque objet peut décider de sa représentation en tant que bloc, par exemple un document ou une règle (logique ou de filtrage) pourraient fournir un modèle de représentation en tant que bloc.
+ * Les ports peuvent contenir les informations de typage, et des contraintes ;
+ * Les connexions contiennent les transtypages, et par exemple dans le cas de la connexion d'un flux de type «liste» à un un bloc acceptant des valeurs uniques, la transformation automatique en une appliquation du bloc à chaque élément de la liste est inscrite dans la connexion.
+
+L'utilisation de blocs pour représenter les fonctions permet aussi une représentation agréable des fonctions récursives : Soit l'appel récursif est représenté par des connexions internes avec bloc identique à celui en cours de définition (le bloc «factorielle» est composé du bloc «multiplication» et du bloc «factorielle» lui-même), dans le cas de récursivité non terminale. Dans le cas de la récursivité terminale, la sortie du bloc est simplement re-connectée à son entrée.
+
+== Sans primitives fixées ==
+
+Ce langage ne possède pas de primitives (telles que les opérations arithmétiques ou d'entrée-sortie) qui ne seraient pas implémentées avec le langage lui-même.
+
+Afin de fournir des éléments de base pour le langage, la machine destinée à exécuter les programmes sera modélisée sous la forme d'opérations qu'elle est capable de faire et leur impact sur l'état de la machine. En terme de programmation orientée objet, on peut considérer la machine comme un gigantesque objet, dont on ne connaît pas l'implémentation, mais dont on connaît les effets de bord.
+
+Afin d'assurer la portabilité des programmes, différents modules d'abstraction sont définis, chacun étant composé d'un ensemble de fonctions, structures, etc. dont seules les signatures sont définies, mais dont l'implémentation varie selon la machine, etc.
+
+Les avantages de cette architecture par rapport aux classiques primitives fixes et bibliothèques de fonctions sont :
+ * Des «primitives» définies en termes du langage, donc plus compréhensibles ;
+ * La possibilité de programmer pour des machines radicalement différentes de celles pour lesquelles le langage a été conçu, par exemple pour une machine de prototypage rapide (robot construisant un objet par dépôt de couches successives du matériau de base), on définira les primitives comme étant les actions de déplacement du bras ou de dépôt de matérieau, et leurs effets de bord seront des modifications sur l'état du bras articulé (position) ou de l'objet en cours de construction.
+
+== Dataflow ==
+
+Le paradigme de programmation dominant du langage est le dataflow. Le dataflow est un paradigme de programmation qui se focalise sur le cheminement des données dans le programme, contrairement à la programmation impérative focalisée sur la suite des actions effectuées, ou à la programmation fonctionnelle pure, axée autour de l'application de fonctions.
+
+Ce paradigme est souvent utilisé par les langages de programmation graphiques car il découle assez simplement de la représentation des programmes (des sortes de filtres transformant l'information reçue et la passant au filtre suivant).
+
+== Preuves ==
+
+Les blocs seront écrits en vue d'être prouvés, si possible les preuves devraient être rédigées dans le même temps que les blocs, de manière similaire à ce qui se fait dans la méthode B. Plusieurs types de preuves devront être écrites et vérifiées avant exécution :
+
+ * Correction, indiquant que le bloc fait bien ce qu'il annonce faire (de manière formelle, dans sa signature) ;
+ * Terminaison, si nécessaire ;
+ * Absence de fuites mémoires ;
+ * Absence d'opérations pour lesquelles le bloc ne dispose pas de privilèges (accès à la mémoire d'autres blocs, altération de données, …);
+
+Ces preuves permettent au système d'exécuter un bloc sans aucune contrainte (pas de nécessité d'isoler les processus, pas de vérification de droit d'accès), après en avoir vérifié les preuves. Cela permet aussi de prouver des blocs plus gros en se basant sur les preuves des blocs utilisés dans sa construction, et ainsi de s'assurer de l'absence d'erreurs de programmation.
+
+== Liens Externes ==
+
+ * [[http://lambda-the-ultimate.org/|lambda-the-ultimate.org]] : Excelent blog collectif sur la théorie des langages de programmation ;
+ * [[http://www.info.ucl.ac.be/~pvr/VanRoyChapter.pdf|Programming Paradigms for Dummies]] : Un résumé des différents paradigmes de programmation et leurs principes ;
+ * [[http://en.wikipedia.org/wiki/Flow-based_programming|Flow-based programming]] (wikipedia).
+
+=== À étudier ===
+
+ * [[http://books.google.ca/books?id=Q_J4Lnmfjx4C&dq=jay+%22pattern+calculus%22&printsec=frontcover&source=bl&ots=LMLAmh2f4J&sig=qVb9lGsY-cWLpB4ogu53-YlGmnE&hl=en&ei=HkwRS5frGYGOlAfbzuSUBA&sa=X&oi=book_result&ct=result&resnum=1&ved=0CAgQ6AEwAA#v=onepage&q=&f=false|Pattern Calculus]] ;
+ * [[http://portal.acm.org/citation.cfm?id=834420|BDL - A Nondeterministic Data Flow Programming Language with Backtracking]].

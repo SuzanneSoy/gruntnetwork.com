@@ -1,0 +1,30 @@
+page
+
+= Systeme de fichiers.html =
+
+Le système de fichiers de gruntnetwork est une base de données orientée document.
+
+== Méta-données ==
+
+Lorsqu'un document est stocké, il est analysé pour en retirer un maximum de méta-données, telles que celles contenues dans les balises des fichiers JPEG ou OGG. Dans le cas d'un document textuel, les différents titres et sous-titres, ainsi que la fréquence d'apparition des mots sont récupérés. Expérimentalement, une fouille de texte et une analyse automatique de l'image pourront être effectuées.
+
+L'utilisateur peut lui-même ajouter des méta-données telles que des tags identifiant le sujet du document, des informations en sur-couche sur le document, par exemple :
+
+ * noms des personnes présentes dans une photo associés à leur position dans l'image ;
+ * Notes de marge dans un texte ;
+ * Tâches à effectuer sur certaines parties du document (TODO) ;
+ * Commentaires dans programme, explications approfondies dans un texte ;
+ * Citations et références hypertextes à d'autres documents (locaux ou non).
+
+Ces informations sont stockées et indexées dans la base de données pour permettre une recherche rapide selon divers critères.
+
+== Versions ==
+
+Lorsqu'un document évolue, la base de données peut stocker un historique de ses versions. Ainsi, lorsqu'on édite un document, les différents niveaux d'annulations sont directement gérés par le système de fichiers.
+
+Pour gagner de l'espace disque, ou simplement pour avoir un historique complet, il est possible de stocker un arbre contenant toutes les actions effectuées sur le document (chaque nouvelle branche étant créée lors de l'annulation de sa voisine).
+
+== Vues et versions parallèles ==
+
+== Caches et données temporaires ==
+

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<title>Syst&egrave;me de fichiers</title>
+		<link rel="stylesheet" href="http://gruntnetwork.com/style/style.css" type="text/css" />
+		<script type="text/javascript" src="http://gruntnetwork.com/style/logo.js"></script>
+	</head>
+	<body>
+		<p id="entete">
+			<img alt="Gruntnetwork ⁃" src="http://gruntnetwork.com/image/logo.png" id="logo-grunt" />
+			<span id="liens">
+				<a href="//gruntnetwork.com/Accueil.html" id="lien-accueil">Accueil</a> ⁃
+				<a href="http://gruntnetwork.com/editer/?page=Syst%C3%A8me+de+fichiers" id="lien-editer">Éditer</a>
+			</span>
+		</p>
+		<hr />
+		<div id="contenu">
+			<h1>Système de fichiers</h1>
+<p>
+Le système de fichiers de gruntnetwork est une base de données orientée document.
+</p>
+<h2>Méta-données</h2>
+<p>
+Lorsqu'un document est stocké, il est analysé pour en retirer un maximum de méta-données, telles que celles contenues dans les balises des fichiers JPEG ou OGG. Dans le cas d'un document textuel, les différents titres et sous-titres, ainsi que la fréquence d'apparition des mots sont récupérés. Expérimentalement, une fouille de texte et une analyse automatique de l'image pourront être effectuées.
+</p>
+<p>
+L'utilisateur peut lui-même ajouter des méta-données telles que des tags identifiant le sujet du document, des informations en sur-couche sur le document, par exemple :
+</p>
+<ul>
+<li>
+noms des personnes présentes dans une photo associés à leur position dans l'image ;
+</li>
+<li>
+Notes de marge dans un texte ;
+</li>
+<li>
+Tâches à effectuer sur certaines parties du document (TODO) ;
+</li>
+<li>
+Commentaires dans programme, explications approfondies dans un texte ;
+</li>
+<li>
+Citations et références hypertextes à d'autres documents (locaux ou non).
+</li>
+</ul>
+<p>
+Ces informations sont stockées et indexées dans la base de données pour permettre une recherche rapide selon divers critères.
+</p>
+<h2>Versions</h2>
+<p>
+Lorsqu'un document évolue, la base de données peut stocker un historique de ses versions. Ainsi, lorsqu'on édite un document, les différents niveaux d'annulations sont directement gérés par le système de fichiers.
+</p>
+<p>
+Pour gagner de l'espace disque, ou simplement pour avoir un historique complet, il est possible de stocker un arbre contenant toutes les actions effectuées sur le document (chaque nouvelle branche étant créée lors de l'annulation de sa voisine).
+</p>
+<p>
+Ceci est facile à mettre en place grâce au côté <a href="http://gruntnetwork.com/Interface Homme-2dMachine.html#Interface+orient%C3%A9e+document">orientée document</a> du système, qui rend les outils dépendants du document. Dans un modèle orienté processus, il faudrait que chaque programme implémente la possibilité d'enregistrer l'arbre des modifications. Ici, c'est au moment où l'utilisateur indique vouloir effectuer telle ou telle action, que celle-ci est enregistrée dans l'historique, indépendemment de l'exécution de cette action.
+</p>
+<h2>Structuration et archivage</h2>
+<p>
+Par défaut, au lieu de structurer l'ensemble des données avec des dossiers, le système propose une structuration en projets (et si nécessaire sous-projets) et bibliothèques. Les bibliothèques contiennent les données qui n'ont pas été créées par l'utilisateur, par exemple sa bibliothèque musicale, un recueil de documentations, etc. Les projets contiennent les documents créés par l'utilisateur, groupés, comme leur nom l'indique, lorsqu'ils font partie du même projet.
+</p>
+<p>
+L'écran d'accueil liste les projets actifs sur lesquels l'utilisateur est suceptible de vouloir travailler, ainsi que divers points d'accès à ses bibliothèques, et une liste de tâches courantes de maintenance (effectuer des sauvegardes, archiver un projet, ajouter des outils, gérer les utilisateurs du système, …).
+</p>
+<p>
+Lorsqu'un utilisateur a terminé son activité sur un projet, il peut l'archiver (tous les <a href="#Caches+et+donn%C3%A9es+temporaires">caches</a> (voir plus bas), sauf les plus suceptibles d'être utilisés sont supprimés, une sauvegarde est automatiquement proposée et le projet n'apparaît plus dans la liste des projets actifs). Après un certain temps d'archivage sans visualisation, tout ou partie du projet peut être compressé, tous les caches effacés et, dans un système à grande échelle, le projet pourraît être déplacé vers une zone de stockage secondaire (sur bande par exemple).
+</p>
+<h2>Vues et versions parallèles</h2>
+<p>
+Plusieurs vues d'un document peuvent être stockées dans la base de données, sous l'intitulé d'un seul document, vu de l'extérieur. Par exemple, pour un document textuel, on aura une vue «source», qui sera une représentation what-you-see-is-what-you-mean (ce que vous voyez est ce que vous voulez dire), contennant les réelles informations du document, que l'on peut éditer, et une vue «finale», représentant le document tel qu'il serait imprimé ou vu par un tiers après publication. Cette vue serait le résultat d'une sorte de compilation de la vue source. Il pourrait aussi bien y avoir une vue «PDF», résultat d'une compilation différente.
+</p>
+<p>
+Ceci est assez souvent mal géré dans les systèmes actuels, l'exemple typique étant un document LaTeX : à sa compilation, plusieurs fichiers sont générés, qui viennent polluer visuellement le dossier contennant. NTFS propose toutefois d'associer plusieurs flux à un nom de fichier, mais quasiment aucune application n'utilise cette fonctionnalité, et le système d'exploitation lui-même ne propose pas d'outil pour manipuler ces flux.
+</p>
+<p>
+Parfois, il n'y a pas de dépendance directe d'une vue à l'autre, comme dans le cas version source / versions compilées, mais seulement un tronc commun, par exemple lors d'un conflit d'édition lors de la modification simultanée d'un document par deux personnes, ou encore dans le cas d'un «fork» d'un logiciel. Le système pourra alors conserver à jour les parties communes aux différentes versions parallèles du document pour peu que l'utilisateur lui indique quelles parties sont communes et quelles parties subiront les modifications séparément.
+</p>
+<h2>Caches et données temporaires</h2>
+<p>
+Lorsqu'un document possède plusieurs vues qui dérivent d'une même source, il n'est pas toujours nécessaire de toutes les conserver - puisqu'elles peuvent être régénérées à la demmande depuis leur source. D'un autre côté il serait idiot de les reconstruire à chaque visualisation alors que la source n'a pas changé. Il en est de même pour des documents situés sur une machine distante : une copie locale est souhaitable pendant un certain temps, mais elle devrait disparaître par la suite.
+</p>
+<p>
+C'est là qu'intervient le mécanisme de cache du système de fichiers : lorsqu'un document qui peut être facilement re-créé est stocké, il est marqué comme étant un cache, et reçoit comme méta-données sa source et le programme permettant de le régénérer. Une méta-donnée supplémentaire peut être ajoutée : le coût de sa génération. Les caches les moins coûteux et les moins utilisés sont libérés en premier, les plus coûteux et les plus fréquemment utilisés en dernier.
+</p>
+<p>
+Lorsqu'un programme a besoin de stocker des données temporaires, il demmande au système une ressource de stockage de données temporaires. Selon l'état de la mémoire, cette zone peut être allouée dans la mémoire vive ou sur le disque dur.
+</p>
+<p>
+L'avantage de marquer explicitement ces zones comme temporaires vient lors du nettoyage : si le programme plante, la zone sera automatiquement libérée (c'est le cas de la mémoire vive allouée dans les systèmes actuels, mais pas des fichiers temporaires). Cela apporte aussi une plus grande sécurité des données à peu de coût : les documents des utilisateurs pourraient être stockés de manière redondante (RAID, …), tandis que les données temporaires ne le seront pas. Lors de la suppression, les documents utilisateur pourraient nécessiter une confirmation explicite, à l'inverse des données temporaires.
+</p>
+<p>
+De plus, une place privilégiée pourra être allouée, puisqu'on sait que ces données sont vouées à disparaître sous peu : une zone rapide du disque dur (la densité d'informations et donc la vitesse de lecture n'est pas homogène sur un disque dur), une zone proche des données en cours de traitement (pour limiter le déplaçage des têtes de lecture).
+</p>
+<p>
+La mémoire virtuelle, ou mémoire d'échange (portion du disque dur utilisée comme extension de la mémoire vive) est par exemple déclarée comme zone temporaire, ce qui lui permet d'être située sur un endroit privilégié du disque, et de ne pas occuper de place lorsqu'on ne s'en sert pas, contrairement à la partition «swap» utilisée dans certains systèmes UNIX actuellement.
+</p>
+		</div>
+		<hr />
+		<p id="pied">
+			<span id="hebergeur">Hébergé par <a href="http://tuxfamily.org/" id="lien-tuxfamily">tuxfamily</a>.</span>
+			<a href="//gruntnetwork.com/Licence.html" id="lien-licence">Licence</a>
+			<span id="maj"><abbr title="Mise à jour">Màj&nbsp;</abbr>:&nbsp;Sat,&nbsp;12&nbsp;Dec&nbsp;2009&nbsp;17:01:42&nbsp;+0000</span>
+			<span class="barriere-float"></span>
+		</p>
+	</body>
+</html>

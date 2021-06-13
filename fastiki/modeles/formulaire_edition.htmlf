@@ -1,0 +1,12 @@
+<form action="{{{url:editer:${nom page}:}}}" method="post" enctype="multipart/form-data">
+	<p>
+		<input type="text" name="titre" value="${he:nouveau nom page}" />
+	</p>
+	<p>
+		<textarea name="source" cols="70" rows="22">${he:source}</textarea>
+	</p>
+	<p>
+		<input type="submit" name="appliquer" value="{{{lang:Appliquer}}}" />
+		<input type="submit" name="appercu" value="{{{lang:Apperçu}}}" />
+	</p>
+</form>

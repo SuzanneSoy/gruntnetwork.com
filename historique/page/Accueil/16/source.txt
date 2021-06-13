@@ -1,0 +1,9 @@
+page
+
+= Gruntnetwork =
+
+'''Gruntnetwork''' est un projet de système d'expoitation, avec les particularités suivantes :
+ * Il est construit (et programmable) avec un [Langage|langage de programmation graphique] ;
+ * L'interface homme-machine [Interface Homme-Machine#Interface orientée document|orientée document], et non processus, est [Interface Homme-Machine#Génération semi-automatique|générée semi-automatiquement] ;
+ * Son [Système de fichiers|système de fichiers] est une base de données, et la gestion des fichiers rend des tâches telles que l'archivage ou la recherche particulièrement faciles ;
+ * Sa [Gestion des ressources|gestion des ressources] matérielles est suffisemment souple pour permettre à des programmes ''en cours d'exécution'' d'être sauvegardés dans leur état courant, déplacés sur une autre machine avec des ressources matérielles différentes, … De plus la mise en veille devient triviale à implémenter, et fonctionne à tous les coups.

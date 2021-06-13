@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<title>Interface Homme-Machine</title>
+		<link rel="stylesheet" href="http://gruntnetwork.com/style/style.css" type="text/css" />
+		<script type="text/javascript" src="http://gruntnetwork.com/style/logo.js"></script>
+	</head>
+	<body>
+		<p id="entete">
+			<img alt="Gruntnetwork ⁃" src="http://gruntnetwork.com/image/logo.png" id="logo-grunt" />
+			<span id="liens">
+				<a href="//gruntnetwork.com/Accueil.html" id="lien-accueil">Accueil</a> ⁃
+				<a href="http://gruntnetwork.com/editer/?page=Interface+Homme-2dMachine" id="lien-editer">Éditer</a>
+			</span>
+		</p>
+		<hr />
+		<div id="contenu">
+			<h1>Interface Homme-Machine</h1>
+<h2>Interface orientée document</h2>
+<p>
+L'Interface Homme-Machine (IHM) de gruntnetwork est orientée document. Cela signifie que l'élément principal présenté à l'utilisateur est le document, autour duquel viennent se greffer des outils.
+</p>
+<p>
+Dans la plupart des sytèmes actuels, on présente à l'utilisateur la possibilité de lancer divers processus directement (via un menu d'applications), ou bien de lancer ces mêmes processus avec une certaine donnée en entrée (l'ouverture d'un fichier via son icône passe obligatoirement par le démarrage d'un processus, qui décide que faire de ce fichier). Cette approche présente plusieurs défauts :
+</p>
+<ul>
+<li>
+Lorsque le processus plante, tous ses documents sont perdus ;
+</li>
+<li>
+Intuitivement, l'utilisateur a l'impression d'avoir ouvert un document, alors qu'en réalité il vient de démarrer une application. L'utilisateur a donc une vision erronnée du système, ce qui est en général mauvais, car moins il comprend le système, moins il est efficace ;
+</li>
+<li>
+Des mécanismes complexes de dialogue entre applications sont nécessaires pour l'édition de documents composite (OLE, Kpart, …) ;
+</li>
+<li>
+Si l'application ne sait pas gérer un certain protocole (http, ouverture de fichiers à l'intérieur de fichiers compressés, …), elle ne pourra pas ouvrir les documents accessibles via ce protocole. L'environnement de bureau KDE apporte une solution en permettant le partage de ces protocoles via les KIOSlaves.
+</li>
+</ul>
+<p>
+Une approche orientée document apporte des solutions à ces problèmes :
+</p>
+<ul>
+<li>
+Lorsqu'un des outils greffés autour du document plante, il suffit de le redémarrer. Et quand bien même cela serait impossible, ou si c'est le programme chargé de l'affichage du document qui plante, il est toujours possible de proposer à l'utilisateur d'enregistrer son document pour éviter des pertes de données.
+</li>
+<li>
+L'édition de documents composites se fait sans encombre : selon la portion du document considérée, les outils qui viennent se greffer changent.
+</li>
+<li>
+Les outils ne gèrent pas l'ouverture du document, on a des blocs différents pour le chargement en mémoire, le décodage, la visualisation, la modification, l'encodage et l'enregistrement, chacun fonctionnant indépendemment des autres.
+</li>
+</ul>
+<h2>Génération semi-automatique</h2>
+<p>
+L'Interface Homme-Machine (IHM) de gruntnetwork est générée semi-automatiquement à partir d'une spécification déclarative. Cette spécification indique au système quelles sont les informations qui sont les plus importantes (et donc devraient être affichées à l'écran), quelles sont les informations secondaires (accessibles par exemple au travers d'une boîte de dialogue de propriétés), etc.
+</p>
+<p>
+De même, cette spécification liste les actions qu'il est possible d'effectuer, les plus importantes s'affichant sous forme d'icône par exemple, les autres étant rangées dans des menus ou bien accessibles via des raccourcis clavier.
+</p>
+<p>
+Plusieurs spécifications peuvent coexister, ce qui permet d'avoir très facilement des interfaces différentes pour les utilisateurs expérimentés et les novices. On peut aussi imaginer une spécification d'interface actualisée dynamiquement en fonction des actions les plus fréquentes de l'utilisateur.
+</p>
+		</div>
+		<hr />
+		<p id="pied">
+			<span id="hebergeur">Hébergé par <a href="http://tuxfamily.org/" id="lien-tuxfamily">tuxfamily</a>.</span>
+			<a href="//gruntnetwork.com/Licence.html" id="lien-licence">Licence</a>
+			<span id="maj"><abbr title="Mise à jour">Màj&nbsp;</abbr>:&nbsp;Thu,&nbsp;10&nbsp;Dec&nbsp;2009&nbsp;17:33:55&nbsp;+0000</span>
+			<span class="barriere-float"></span>
+		</p>
+	</body>
+</html>

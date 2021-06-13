@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<title>Gestion des ressources</title>
+		<link rel="stylesheet" href="http://gruntnetwork.com/style/style.css" type="text/css" />
+		<script type="text/javascript" src="http://gruntnetwork.com/style/logo.js"></script>
+	</head>
+	<body>
+		<p id="entete">
+			<img alt="Gruntnetwork ⁃" src="http://gruntnetwork.com/image/logo.png" id="logo-grunt" />
+			<span id="liens">
+				<a href="//gruntnetwork.com/Accueil.html" id="lien-accueil">Accueil</a> ⁃
+				<a href="http://gruntnetwork.com/editer/?page=Gestion+des+ressources" id="lien-editer">Éditer</a>
+			</span>
+		</p>
+		<hr />
+		<div id="contenu">
+			<h1>Gestion des ressources</h1>
+<p>
+Les programmes fonctionnant sous le système d'exploitation gruntnetwork doivent faire une demmande d'allocation de ressource auprès du système d'exploitation lorsqu'ils ont besoin de mémoire, d'une sortie sonore, d'une portion d'affichage graphique, voire de temps de calcul.
+</p>
+<p>
+Cette ressource n'est pas allouée définitivement par le système et l'accès à celle-ci peut être révoqué à tout moment. Un signal est alors envoyé à l'application qui peut traiter cette disparition de ressource.
+</p>
+<p>
+La ressource peut être reprise de plusieurs manières (l'application en est informé) :
+</p>
+<ul>
+<li>
+Accès temporairement désactivé, lors de la mise en veille par exemple. La ressource sera ré-allouée au réveil ;
+</li>
+<li>
+Accès révoqué de manière permanente, lors de l'arrêt de la machine, ou lors de la déconnexion d'un périphérique ;
+</li>
+</ul>
+<p>
+Cette gestion des ressources permet des choses étonemment pratiques, comme la mise en hibernation d'un processus (accès temporairement désactivé), puis son réveil sur une autre machine (accès restitué, mais avec une ressource légèrement différente). Cela permet de déplacer des processus en cours d'exécution d'une machine à l'autre, ou de les enregistrer en vue de les relancer plus tard, …
+</p>
+		</div>
+		<hr />
+		<p id="pied">
+			<span id="hebergeur">Hébergé par <a href="http://tuxfamily.org/" id="lien-tuxfamily">tuxfamily</a>.</span>
+			<a href="//gruntnetwork.com/Licence.html" id="lien-licence">Licence</a>
+			<span id="maj"><abbr title="Mise à jour">Màj&nbsp;</abbr>:&nbsp;Thu,&nbsp;10&nbsp;Dec&nbsp;2009&nbsp;17:34:20&nbsp;+0000</span>
+			<span class="barriere-float"></span>
+		</p>
+	</body>
+</html>

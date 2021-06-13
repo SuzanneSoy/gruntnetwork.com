@@ -1,0 +1,9 @@
+page
+
+= Interface orientée document =
+
+L'Interface Homme-Machine (IHM) de gruntnetwork est orientée document. Cela signifie que l'élément principal présenté à l'utilisateur est le document, autour duquel viennent se greffer des outils.
+
+Dans la plupart des sytèmes actuels, on présente à l'utilisateur la possibilité de lancer divers processus directement (via un menu d'applications), ou bien de lancer ces mêmes processus avec une certaine donnée en entrée (l'ouverture d'un fichier via son icône passe obligatoirement par le démarrage d'un processus, qui décide que faire de ce fichier).
+
+= Génération semi-automatique =

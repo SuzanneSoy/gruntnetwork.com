@@ -1,0 +1,17 @@
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^$ ./site/page/Accueil.html [PT,L]
+
+RewriteCond %{REQUEST_URI} !^/site/
+RewriteRule (.*) /site/$1 [NC]
+
+RewriteCond %{REQUEST_URI} !^/site/page/
+RewriteCond %{REQUEST_URI} !^/diff/
+RewriteCond %{REQUEST_URI} !^/editer/
+RewriteCond %{REQUEST_URI} !^/historique/
+RewriteCond %{REQUEST_URI} !^/image/
+RewriteCond %{REQUEST_URI} !^/login/
+RewriteCond %{REQUEST_URI} !^/style/
+RewriteCond %{REQUEST_URI} !^/utilisateur/
+RewriteRule /site/(.*) /site/page/$1 [L]

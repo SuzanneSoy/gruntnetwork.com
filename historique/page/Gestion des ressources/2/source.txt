@@ -1,0 +1,14 @@
+page
+
+= Gestion des ressources =
+
+Les programmes fonctionnant sous le système d'exploitation gruntnetwork doivent faire une demmande d'allocation de ressource auprès du système d'exploitation lorsqu'ils ont besoin de mémoire, d'une sortie sonore, d'une portion d'affichage graphique, voire de temps de calcul.
+
+Cette ressource n'est pas allouée définitivement par le système et l'accès à celle-ci peut être révoqué à tout moment. Un signal est alors envoyé à l'application qui peut traiter cette disparition de ressource.
+
+La ressource peut être reprise de plusieurs manières (l'application en est informé) :
+
+ * Accès temporairement désactivé, lors de la mise en veille par exemple. La ressource sera ré-allouée au réveil ;
+ * Accès révoqué de manière permanente, lors de l'arrêt de la machine, ou lors de la déconnexion d'un périphérique ;
+
+Cette gestion des ressources permet des choses étonemment pratiques, comme la mise en hibernation d'un processus (accès temporairement désactivé), puis son réveil sur une autre machine (accès restitué, mais avec une ressource légèrement différente). Cela permet de déplacer des processus en cours d'exécution d'une machine à l'autre, ou de les enregistrer en vue de les relancer plus tard, …

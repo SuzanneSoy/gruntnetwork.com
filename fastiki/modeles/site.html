@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{{lang:_code langue}}}">
+	<head>
+		<title>${he:nom page}</title>
+		<link rel="stylesheet" href="{{{url:style:style.css:}}}" type="text/css" />
+		<script type="text/javascript" src="{{{url:style:logo.js:}}}"></script>
+	</head>
+	<body>
+		<p id="entete">
+			<img alt="Gruntnetwork ⁃" src="{{{url:image:${logo}:}}}" id="logo-grunt" />
+			<span id="liens">
+				<a href="{{{url:accueil::}}}" id="lien-accueil">{{{lang:Accueil}}}</a> ⁃
+				<a href="{{{url:editer:${nom page}:}}}" id="lien-editer">{{{lang:Éditer}}}</a>
+			</span>
+		</p>
+		<hr />
+		<div id="contenu">
+			${contenu}
+		</div>
+		<hr />
+		<p id="pied">
+			<span id="hebergeur">Hébergé par <a href="http://tuxfamily.org/" id="lien-tuxfamily">tuxfamily</a>.</span>
+			<a href="{{{url:licence::}}}" id="lien-licence">{{{lang:Licence}}}</a>
+			<span id="maj"><abbr title="Mise à jour">Màj&nbsp;</abbr>:&nbsp;${he:datenbsp}</span>
+			<span class="barriere-float"></span>
+		</p>
+	</body>
+</html>

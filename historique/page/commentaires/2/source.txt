@@ -1,0 +1,5 @@
+page
+
+= commentaires =
+
+Insérez vos commentaires ici. Sachez qu'ils seront publiés sous les termes de la licence du site web (cliquez sur le lien en bas de page pour en prendre connaissance).
